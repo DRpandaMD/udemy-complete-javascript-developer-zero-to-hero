@@ -1,0 +1,10 @@
+# testing docker compose for development
+
+version: '3.2'
+
+services:
+  node:
+    image: "node-docker-dev"
+    build: .
+    volumes:
+      - .:/opt/app
