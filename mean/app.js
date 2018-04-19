@@ -10,12 +10,11 @@ var path = require('path');
 
 app.set('port', 3000);
 
-app.get('/', function(req, res){
-    console.log("Get the home page")
-    res
-        .status(200)
-        .sendFile(path.join(__dirname, "public", "index.html") )
-})
+/* Setting up static middlewear
+*/
+app.use(express.static(path.join(__dirname, 'public')));
+
+
 
 app.get('/json', function(req, res){
     console.log("Get the  JSON")
