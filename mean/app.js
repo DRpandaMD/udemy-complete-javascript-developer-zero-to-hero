@@ -8,6 +8,7 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var routes = require('./api/routes');
+var bodyParser = require('body-parser')
 
 app.set('port', 3000);
 
@@ -19,6 +20,11 @@ app.use(function(req, res, next) {
 
 /* Setting up static middlewear */
 app.use(express.static(path.join(__dirname, 'public')));
+
+/*Set up the body parser to send form data */
+app.use(bodyParser.urlencoded({ extended: false }))
+
+/* point the api route to our routes folder */
 app.use('/api', routes)
 
 /*Set up listening on the port */
