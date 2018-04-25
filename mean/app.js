@@ -4,11 +4,13 @@ MEAN stack
 setting up express
 
  */
+require('./api/data/dbconnection.js').open()
 var express = require('express');
 var app = express();
 var path = require('path');
 var routes = require('./api/routes');
 var bodyParser = require('body-parser')
+
 
 app.set('port', 3000);
 

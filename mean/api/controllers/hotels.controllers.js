@@ -1,8 +1,12 @@
 /* Hotels controller */
 
+var dbconn = require("../data/dbconnection.js")
 var hotelData = require('../data/hotel-data.json')
 
 module.exports.getAllHotels = function(req, res){
+    
+    var db = dbconn.get()
+    console.log("db", db)
     console.log("Get the  Hotels")
     console.log(req.query);
 
@@ -25,6 +29,9 @@ module.exports.getAllHotels = function(req, res){
 };
 
 module.exports.getHotelByID = function(req, res){
+    var db = dbconn.get()
+    console.log("db", db)
+
     var hotelID = req.params.hotelID;
     var thisHotel = hotelData[hotelID];
     console.log("Get the  hotel ID", hotelID)
@@ -34,6 +41,9 @@ module.exports.getHotelByID = function(req, res){
 };
 
 module.exports.addHotel = function(req, res){
+    var db = dbconn.get()
+    console.log("db", db)
+    
     console.log("POST new hotel")
     console.log(req.body);
     res
